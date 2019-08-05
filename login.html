@@ -1,0 +1,83 @@
+<html>
+<head>
+  <link rel="stylesheet" href="login_style.css" media="screen">
+
+  <script src="login.js" charset="utf-8" defer></script>
+
+<title>Dr.Benny Login page</title>
+    <link rel="stylesheet" type="text/css" href="login_style.css">
+<body>
+
+    <div class="loginbox">
+    <img src="benny.jpg" class="avatar">
+        <h1>Dr.Benny</h1>
+        <form>
+            <p>Username</p>
+            <input type="text" id="userid" placeholder="Enter Username">
+            <p>Password</p>
+            <input type="password" id="pswrd" placeholder="Enter Password">
+            <div class="Login_button">
+              <input type="submit" name="" value="Login">
+            </div>
+            <button type="button" id="create-changepwd-button"><a href="#">Lost your password?</a><br></button>
+            <div id="modal-backdrop" class="hidden"></div>
+            <div id="create-changepwd-modal" class="hidden">
+              <div class="modal-dialog">
+
+                <div class="modal-header">
+                  <h3>Change password</h3>
+                </div>
+
+                <div class="modal-body">
+                  <p>Username</p>
+                  <div class="changepwd-username-input-element">
+                    <input type="text" id="changepwd-username-attribution-input" placeholder="Enter your username">
+                  </div>
+                  <p>New password</p>
+                  <div class="changepwd-input-element">
+                    <input type="password" id="changepwd-attribution-input" placeholder="Enter your new password">
+                  </div>
+                </div>
+
+                <div class="modal-footer">
+                  <button type="button" class="modal-changepwd-button">Change password</button>
+                  <button type="button" class="modal-cancel-button">Cancel</button>
+                </div>
+
+              </div>
+            </div>
+            <button type="button" id="create-account-button"><a href="#">Don't have an account?</a><br></button>
+            <div id="modal-backdrop-2" class="hidden"></div>
+            <div id="create-account-modal" class="hidden">
+              <div class="modal-dialog">
+
+                <div class="modal-header">
+                  <h3>Sign Up for Free</h3>
+                </div>
+
+                <div class="modal-body-2">
+                  <p>Username</p>
+                  <div class="account-username-input-element">
+                    <input type="text" id="account-username-attribution-input" placeholder="Enter your username">
+                  </div>
+                  <p>Password</p>
+                  <div class="account-password-input-element">
+                    <input type="password" id="account-password-attribution-input" placeholder="Enter at least 5 chracters password">
+                  </div>
+                </div>
+
+                <div class="modal-footer">
+                  <button type="button" class="modal-account-button">Create an account</button>
+                  <button type="button" class="modal-cancel-button-2">Cancel</button>
+                </div>
+
+              </div>
+            </div>
+        </form>
+
+    </div>
+
+</body>
+</head>
+
+</html>

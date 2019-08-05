@@ -1,0 +1,234 @@
+body{
+    margin: 0;
+    padding: 0;
+    background: url(OSU_Logincover.jpg);
+    background-size: cover;
+    background-position: center;
+    font-family: sans-serif;
+}
+
+.loginbox{
+    width: 320px;
+    height: 420px;
+    background: #000;
+    color: #fff;
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%,-50%);
+    box-sizing: border-box;
+    padding: 70px 30px;
+}
+
+.avatar{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    position: absolute;
+    top: -50px;
+    left: calc(50% - 50px);
+}
+
+h1{
+    margin: 0;
+    padding: 0 0 20px;
+    text-align: center;
+    font-size: 22px;
+}
+
+.loginbox p{
+    margin: 0;
+    padding: 0;
+    font-weight: bold;
+}
+
+.loginbox input{
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.loginbox input[type="text"], input[type="password"]
+{
+    border: none;
+    border-bottom: 1px solid #fff;
+    background: transparent;
+    outline: none;
+    height: 40px;
+    color: #fff;
+    font-size: 16px;
+}
+.loginbox input[type="submit"]
+{
+    border: none;
+    outline: none;
+    height: 40px;
+    background: #ff6600;
+    color: #fff;
+    font-size: 18px;
+    border-radius: 20px;
+}
+.loginbox input[type="submit"]:hover
+{
+    cursor: pointer;
+    background: #ffc107;
+    color: #000;
+}
+.loginbox a{
+    text-decoration: none;
+    font-size: 12px;
+    line-height: 20px;
+    color: white;
+}
+
+.loginbox a:hover
+{
+    color: #ffc107;
+}
+
+
+#create-changepwd-button {
+  border: none;
+  background-color: black;
+  cursor: pointer;
+}
+
+#create-changepwd-button:focus {
+  outline: none;
+}
+
+#create-account-button {
+  border: none;
+  background-color: black;
+  cursor: pointer;
+}
+
+#create-account-button:focus {
+  outline: none;
+}
+
+#modal-backdrop {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+#create-changepwd-modal {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 500px;
+}
+
+#modal-backdrop-2 {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+#create-account-modal {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 500px;
+}
+
+.hidden {
+  display: none;
+}
+
+.modal-dialog {
+  width: 320px;
+  height: 345px;
+  margin-top: 50px;
+  background-color: black;
+  border-radius: 15px;
+}
+
+.modal-header {
+  position: relative;
+  padding: 10px 20px;
+}
+
+.modal-header h3 {
+  margin: 0;
+  font-size: 22px;
+  color: white;
+  text-align: center;
+}
+
+.modal-body {
+  padding: 20px;
+  padding-bottom: 0px;
+}
+
+.modal-body-2 {
+  padding: 20px;
+  padding-bottom: 0px;
+}
+
+.modal-footer button {
+  border: none;
+  outline: none;
+  height: 40px;
+  background: #ff6600;
+  color: #fff;
+  font-size: 18px;
+  border-radius: 20px;
+  margin-left: 30px;
+  margin-bottom: 10px;
+  width: 260px;
+  text-align: center;
+}
+
+.modal-footer .modal-cancel-button:hover {
+  background-color: #ffc107;
+  color: black;
+  cursor: pointer;
+}
+
+.modal-footer .modal-changepwd-button {
+  border: none;
+  outline: none;
+  height: 40px;
+  background: #ff6600;
+  color: #fff;
+  font-size: 18px;
+  border-radius: 20px;
+}
+
+.modal-footer .modal-changepwd-button:hover {
+  background-color: #ffc107;
+  color: black;
+  cursor: pointer;
+}
+
+
+.modal-footer .modal-cancel-button-2:hover {
+  background-color: #ffc107;
+  color: black;
+  cursor: pointer;
+}
+
+.modal-footer .modal-account-button {
+  border: none;
+  outline: none;
+  height: 40px;
+  background: #ff6600;
+  color: #fff;
+  font-size: 18px;
+  border-radius: 20px;
+}
+
+.modal-footer .modal-account-button:hover {
+  background-color: #ffc107;
+  color: black;
+  cursor: pointer;
+}
