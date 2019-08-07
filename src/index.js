@@ -4,7 +4,6 @@ const handlebars = require('express-handlebars').create({defaultLayout:'main'});
 const bodyParser = require('body-parser');
 const session = require('express-session');
 
-
 const app = express();
 
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -30,51 +29,72 @@ app.set('port', port);
 
 
 let users = {
-    "Derek": {
+    "derek": {
         "password": "derek"
     },
-    "Sam": {
+    "sam": {
         "password": "samuel"
     },
-    "Youli": {
+    "youli": {
         "password": "youli"
     },
-    "Kara": {
+    "kara": {
         "password": "kara"
     },
-    "Aleks": {
-        "password": "aleks"
+    "aleks": {
+        password: "aleks"
     }
 };
 
 
 
 app.get('/', function(req, res, next) {
+    res.redirect('login');
+});
+
+app.get('/login', function(req, res, next) {
     if (req.session.logged_in_userid) {
-        res.send(`${req.session.logged_in_userid} logged in`);
+        req.session.logged_in_userid = null;
+        // res.send(`${req.session.logged_in_userid} logged in`);
+        res.redirect('/home')
     }
     else {
-        res.render('login');
+        return res.render('login');
     }
 });
 
 app.post('/login', function(req, res, next){
-    if (users[req.body.userid] && req.body.pswrd == users[req.body.userid].password) {
-        req.session.logged_in_userid = req.body.userid;
+    let content = {'name':req.body.userid};
+    req.body.userid = req.body.userid.toLowerCase();
+    req.session.logged_in_userid = req.body.userid;
+    if (users[req.body.userid] && req.body.pswrd === users[req.body.userid].password) {
+        console.log('inside')
         users[req.body.userid] = {
             "password": req.body.pswrd
         };
-        res.send(`${req.session.logged_in_userid} logged in`);
+        // res.send(`${req.session.logged_in_userid} logged in`);
+        res.redirect('home')
     }
     else {
         context = {"login-error": "Invalid username or password"};
         res.render('login', context);
     }
-
 });
 
+app.get('/home', function(req, res){
+    let content = {'name':req.session.logged_in_userid};
+    res.render('home', content)
+});
 
-
+app.get('/logout', function(req, res, next) {
+    if (req.session.logged_in_userid) {
+        req.session.logged_in_userid = null;
+        return res.redirect('login');
+    }
+    else {
+        return res.redirect('login');
+    }
+});
 
 app.use(function(req,res){
     res.status(404);
