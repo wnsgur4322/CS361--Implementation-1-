@@ -43,7 +43,7 @@ let users = {
         "password": "kara"
     },
     "Aleks": {
-        password: "aleks"
+        "password": "aleks"
     }
 };
 
