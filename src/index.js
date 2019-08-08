@@ -54,7 +54,7 @@ app.get('/', function(req, res, next) {
 
 app.get('/login', function(req, res, next) {
     if (req.session.logged_in_userid) {
-        req.session.logged_in_userid = null;
+        // req.session.logged_in_userid = null;
         // res.send(`${req.session.logged_in_userid} logged in`);
         res.redirect('/home')
     }
@@ -82,8 +82,13 @@ app.post('/login', function(req, res, next){
 });
 
 app.get('/home', function(req, res){
-    let content = {'name':req.session.logged_in_userid};
-    res.render('home', content)
+    if (req.session.logged_in_userid) {
+        let content = {'name':req.session.logged_in_userid};
+        res.render('home', content)
+    }
+    else {
+        return res.redirect('login');
+    }
 });
 
 app.get('/logout', function(req, res, next) {
