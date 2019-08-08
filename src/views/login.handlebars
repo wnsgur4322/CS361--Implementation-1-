@@ -95,7 +95,8 @@ cancel_button.addEventListener('click', rollback);
 //create account modal open part (remove hidden)
 var modal_2 = document.querySelector(".modal");
 var modal_button_2 = document.querySelector("#create-account-button");
-
+var scrhigh=document.body.clientHeight;
+console.log(scrhigh);
 function remove_hidden_2(){
   document.getElementById("create-account-modal").classList.remove('hidden');
   document.getElementById("modal-backdrop-2").classList.remove('hidden');
