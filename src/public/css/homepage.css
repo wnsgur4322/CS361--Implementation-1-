@@ -1,0 +1,18 @@
+.casebox{
+    opacity: 0.8;
+}
+.pstyle{
+    border: lightgray thin solid;
+}
+.casebutton{
+
+}
+.button_accept{
+    margin-left:10px;
+    background-color:rgba(60,220,100,1);
+    float:right;
+}
+.button_decline{
+    background-color: rgba(255,12,0);
+    float:right;
+}
