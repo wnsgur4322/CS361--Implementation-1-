@@ -112,14 +112,28 @@ app.get('/logout', function(req, res, next) {
     }
 });
 
+app.get('/case', function(req, res){
+
+    if (req.session.logged_in_userid) {
+        let content = {'case_id':req.query.case_id};
+        console.log(content);
+        res.render('case', content)
+    } else {
+        console.log('else')
+        return res.redirect('login');
+    }
+});
+
 app.use(function(req,res){
     res.status(404);
+
     res.render('404');
 });
 
 app.use(function(err, req, res, next){
     console.error(err.stack);
     res.type('plain/text');
+    console.log(err)
     res.status(500);
     res.render('500');
 });
