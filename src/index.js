@@ -20,7 +20,7 @@ app.use(session({
     saveUninitialized: false
 }));
 
-let port = 32415;
+let port = 32416;
 const args = process.argv;
 if (args != null && args.length == 3) {
     port = args[2];
@@ -89,6 +89,17 @@ app.get('/home', function(req, res){
     else {
         return res.redirect('login');
     }
+});
+
+app.post('/case-search', function(req,res,next) {
+    if (!req.session.logged_in_userid) {
+        return res.redirect('login');
+    }
+
+    let search_string = req.body.searchstring;
+    
+    res.send(search_string);
+
 });
 
 app.get('/logout', function(req, res, next) {
