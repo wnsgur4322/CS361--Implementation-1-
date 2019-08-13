@@ -19,7 +19,9 @@
         <span class="w3-badge w3-right w3-small w3-green">1</span>
     </button>
     <div class="w3-dropdown-content w3-card-4 w3-bar-block" style="width:300px">
-      <a href="#" class="w3-bar-item w3-button" data-toggle="modal" data-target="#notificationModal">Alert</a>
+      <a href="/case?case_id=2314" class="w3-bar-item w3-button"
+         data-toggle="modal"
+         data-target="#notificationModal">Alert</a>
     </div>
   </div>
               <div class="w3-dropdown-hover w3-button w3-hide-small w3-right w3-padding-large w3-hover-white" >
@@ -79,8 +81,8 @@
       </div>
       <div class="modal-body">
         You have new report(s):
-        <button style="margin-right:10px" type="button"
-                class="w3-button w3-theme">CASE #2314
+        <button style="margin-right:10px" type="button" class="w3-button w3-theme" onclick="location.href='/case?case_id=2314'">
+            CASE #2314
         </button>
       </div>
       <div class="modal-footer">
@@ -111,21 +113,21 @@
               w3-padding">Notifications</p>
                 <p class="pstyle">
                     <button style="margin-right:10px" type="button"
-                            class="w3-button w3-theme">CASE #4533
+                            class="w3-button w3-theme" onclick="location.href='/case?case_id=4533'">CASE #4533
                     </button>Case #4533 has a new report to review.
                 </p>
-                <p class="pstyle">
+                <p class="style">
                     <button style="margin-right:10px" type="button"
-                            class="w3-button w3-theme">CASE #9976
+                            class="w3-button w3-theme" onclick="location.href='/case?case_id=9976'">CASE #9976
                     </button>Case #9976 has updated patient records
                 </p>
                 <p class="pstyle">
                     <button style="margin-right:10px" type="button"
-                            class="w3-button w3-theme">CASE #2314
+                            class="w3-button w3-theme" onclick="location.href='/case?case_id=2314'">CASE #2314
                     </button>New case available
                                         <button
                     type="button"
-                            class="button_decline w3-button" style="background-color: rgba(255,12,0);">
+                            class="button_decline w3-button" style="background-color: rgba(255,12,0,1);">
                         &#10008;
                     </button>
                     <button
@@ -137,7 +139,7 @@
                 </p>
                 <p class="pstyle">
                     <button style="margin-right:10px" type="button"
-                            class="w3-button w3-theme">CASE #9304
+                            class="w3-button w3-theme" onclick="location.href='/case?case_id=9304'">CASE #9304
                     </button>Case #9304 has updated patient records
                 </p>
             </div>
@@ -154,7 +156,7 @@
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
         <button type="button" class="w3-button w3-theme-d2 w3-margin-bottom"><i class="fa fa-comment"></i>  Comment</button>
         <button type="button" class="w3-button w3-theme-d1
-        w3-margin-bottom">See Case</button>
+        w3-margin-bottom" onclick="location.href='/case?case_id=55556'">See Case</button>
       </div>
 
       <div class="w3-container w3-card w3-white w3-round w3-margin casebox"><br>
@@ -166,7 +168,7 @@
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
         <button type="button" class="w3-button w3-theme-d2 w3-margin-bottom"><i class="fa fa-comment"></i>  Comment</button>
         <button type="button" class="w3-button w3-theme-d1
-        w3-margin-bottom">See Case</button>
+        w3-margin-bottom" onclick="location.href='/case?case_id=45667'">See Case</button>
       </div>
 
       <div class="w3-container w3-card w3-white w3-round w3-margin casebox"><br>
@@ -178,7 +180,7 @@
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
         <button type="button" class="w3-button w3-theme-d2 w3-margin-bottom"><i class="fa fa-comment"></i>  Comment</button>
         <button type="button" class="w3-button w3-theme-d1
-        w3-margin-bottom">See Case</button>
+        w3-margin-bottom" onclick="location.href='/case?case_id=111178'">See Case</button>
       </div>
 
     <!-- End Middle Column -->
