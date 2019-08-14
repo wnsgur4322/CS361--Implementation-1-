@@ -33,6 +33,16 @@ function upload() {
       <a href="#" class="w3-bar-item w3-button" data-toggle="modal" data-target="#notificationModal">Alert</a>
     </div>
   </div>
+
+  <div class="w3-dropdown-hover w3-hide-small">
+    <button class="w3-button w3-padding-large" title="Case-Search">
+        <i class="fa fa-search"></i>
+    </button>
+    <div class="w3-dropdown-content w3-card-4 w3-bar-block" style="width:300px">
+      <a href="#" class="w3-bar-item w3-button" data-toggle="modal" data-target="#searchModal">Case Search</a>
+    </div>
+  </div>
+  
               <div class="w3-dropdown-hover w3-button w3-hide-small w3-right w3-padding-large w3-hover-white" >
                     <button class="w3-circle" style="
                     background-size: contain; height:23px;width:23px"
@@ -99,6 +109,32 @@ function upload() {
   </div>
 </div>
 
+{{!-- case search Modal --}}
+<div class="modal fade" id="searchModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" style="height: 0px" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Search for a Case</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <form action="/case-search" method="POST" id="case-search" name="case-search">
+
+      <div class="modal-body">
+        Search by case number or patient name:
+          <input type="text" name="searchstring" placeholder="Case # or Patient Name" maxlength="50" size="40" required>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+        
+        <button type="submit" class="btn btn-primary">Search</button>
+        
+      </div>
+      </form>
+    </div>
+  </div>
+</div>
 
 <div id="navDemo" class="w3-bar-block w3-theme-d2 w3-hide w3-hide-large w3-hide-medium w3-large">
   <a href="#" class="w3-bar-item w3-button w3-padding-large">Link 1</a>

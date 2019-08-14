@@ -33,7 +33,7 @@ let users = {
         "password": "derek"
     },
     "sam": {
-        "password": "samuel"
+        "password": "sam"
     },
     "youli": {
         "password": "youli"
@@ -42,11 +42,30 @@ let users = {
         "password": "kara"
     },
     "aleks": {
-        password: "aleks"
+        "password": "aleks"
     }
 };
 
-
+let cases = {
+    "55556": {
+        "name": "John Doe"
+    },
+    "111178": {
+        "name": "Sara Smith"
+    },
+    "4533": {
+        "name": "Miles Davis"
+    },
+    "9976": {
+        "name": "Chris Dave"
+    },
+    "9304": {
+        "name": "Joni Mitchell"
+    },
+    "2314": {
+        "name": "Tony Williams"
+    }
+}
 
 app.get('/', function(req, res, next) {
     res.redirect('login');
@@ -96,9 +115,13 @@ app.post('/case-search', function(req,res,next) {
         return res.redirect('login');
     }
 
-    let search_string = req.body.searchstring;
-    
-    res.send(search_string);
+    let searchstring = req.body.searchstring.trim();
+    let matches = caseSearch(searchstring);
+
+    let context = {};
+    context.matches = matches;
+    context.searchstring = searchstring;
+    res.render('case_search', context);
 
 });
 
@@ -123,6 +146,39 @@ app.get('/case', function(req, res){
         return res.redirect('login');
     }
 });
+
+function caseSearch(searchStr) {
+    let matches = []
+    if (onlyDigits(searchStr)) {
+        Object.keys(cases).forEach(function(caseNum) {
+            if (caseNum.includes(searchStr)) {
+                let match = {};
+                match.caseNum = caseNum;
+                match.name = cases[caseNum].name;
+                matches.push(match);
+            }
+        });
+    }
+    else {
+        Object.keys(cases).forEach(function(caseNum) {
+            if (cases[caseNum]["name"].toLowerCase().includes(searchStr.toLowerCase())) {
+                let match = {};
+                
+                match.caseNum = caseNum;
+                match.name = cases[caseNum].name;
+                matches.push(match);
+            }
+        })
+    }
+    console.log(matches[0]);
+    return matches;
+}
+
+// https://stackoverflow.com/questions/175739/built-in-way-in-javascript-to-check-if-a-string-is-a-valid-number
+function onlyDigits(value) {
+    return /^-{0,1}\d+$/.test(value);
+}
+
 
 app.use(function(req,res){
     res.status(404);
