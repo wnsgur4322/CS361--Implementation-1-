@@ -30,22 +30,34 @@ app.set('port', port);
 
 let users = {
     "derek": {
-        "password": "derek"
+        "password": "derek",
+        "email": "derek@oregonstate.edu",
+        "attendingPhysician": "Dr.John"
     },
     "sam": {
-        "password": "sam"
+        "password": "sam",
+        "email": "sam@oregonstate.edu",
+        "attendingPhysician": "Dr.Wick"
     },
     "youli": {
-        "password": "youli"
+        "password": "youli",
+        "email": "youli@oregonstate.edu",
+        "attendingPhysician": "Dr.Keanu"
     },
     "kara": {
-        "password": "kara"
+        "password": "kara",
+        "email": "kara@oregonstate.edu",
+        "attendingPhysician": "Dr.Reeves"
     },
     "aleks": {
-        "password": "aleks"
+        "password": "aleks",
+        "email": "aleks@oregonstate.edu",
+        "attendingPhysician": "Dr.Boogeyman"
     },
-    "technician": {
-      "password": "tech"
+    "john": {
+      "password": "wick",
+      "email": "dog@oregonstate.edu",
+      "attendingPhysician": "This is technician account"
     }
 };
 
@@ -105,7 +117,8 @@ app.post('/login', function(req, res, next){
 
 app.get('/home', function(req, res){
     if (req.session.logged_in_userid) {
-        let content = {'name':req.session.logged_in_userid};
+        let content = {'name':req.session.logged_in_userid, 'email':users[req.body.userid].email, 'ap':users[req.body.userid].attendingPhysician};
+
         res.render('home', content)
     }
     else {
