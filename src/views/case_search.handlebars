@@ -136,6 +136,104 @@
   </div>
 </div>
 
+<!-- Profile modal -->
+<div class="modal fade" id="ProfileModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" style="height: 0px" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">{{name}}'s Profile</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        Name: {{name}}
+      </div>
+      <div class="modal-body">
+        Email: {{email}}
+      </div>
+      <div class="modal-body">
+        Patient : {{ap}}
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">OK</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Add patient profile modal -->
+<div class="modal fade" id="AddprofileModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" style="height: 0px" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Creat new patient profile</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>Patient name</p>
+        <div class="account-username-input-element">
+          <input type="text" id="account-username-attribution-input" style= "border: none; border-bottom: 1px solid lightgrey; background: transparent; outline: none; height: 40px; color: black;" placeholder="Enter your name">
+        </div>
+      </div>
+      <div class="modal-body">
+        <p>Password</p>
+        <div class="account-password-input-element">
+          <input type="password" id="account-password-attribution-input" style= "border: none; border-bottom: 1px solid lightgrey; background: transparent; outline: none; height: 40px; color: black;" placeholder="Let your patient enter this">
+        </div>
+      </div>
+      <div class="modal-body">
+        <p>Email</p>
+        <div class="account-username-input-element">
+          <input type="text" id="account-email-attribution-input" style= "border: none; border-bottom: 1px solid lightgrey; background: transparent; outline: none; height: 40px; color: black;" placeholder="Enter your email">
+        </div>
+      </div>
+      <div class="modal-body">
+        Attending Physician : Dr.{{name}}
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="modal-account-button" data-dismiss="modal">Create a profile</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+function create_account(){
+  var creating_bool = 0;
+
+  if(document.getElementById("account-username-attribution-input").value != "" && document.getElementById("account-password-attribution-input").value != "" && document.getElementById("account-email-attribution-input").value ){
+    creating_bool = 1;
+  }
+  if(document.getElementById("account-password-attribution-input").value.length < 3){
+    creating_bool = 0;
+  }
+
+  if(creating_bool == 1){
+    alert("Your account is successfully created !");
+    users.push(document.getElementById("account-username-attribution-input").value);
+    users[users.length - 1].password.push(document.getElementById("account-password-attribution-input").value);
+    users[users.length - 1].email.push(document.getElementById("account-email-attribution-input").value);
+    users[users.length - 1].attendingPhysician.push({{name}});
+    document.getElementById("AddprofileModal").classList.add('hidden');
+  }
+
+  if(creating_bool == 0){
+    alert("check your password length (at least 4) or don't left any blank for creating your account !");
+    document.getElementById("account-username-attribution-input").value = "";
+    document.getElementById("account-password-attribution-input").value = "";
+    document.getElementById("account-email-attribution-input").value = "";
+
+  }
+}
+
+var create_account_button = document.querySelector(".modal-account-button");
+create_account_button.addEventListener('click', create_account);
+</script>
+
 <div id="navDemo" class="w3-bar-block w3-theme-d2 w3-hide w3-hide-large w3-hide-medium w3-large">
   <a href="#" class="w3-bar-item w3-button w3-padding-large">Link 1</a>
   <a href="#" class="w3-bar-item w3-button w3-padding-large">Link 2</a>
