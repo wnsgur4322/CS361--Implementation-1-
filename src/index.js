@@ -43,6 +43,9 @@ let users = {
     },
     "aleks": {
         "password": "aleks"
+    },
+    "technician": {
+      "password": "tech"
     }
 };
 
@@ -163,7 +166,7 @@ function caseSearch(searchStr) {
         Object.keys(cases).forEach(function(caseNum) {
             if (cases[caseNum]["name"].toLowerCase().includes(searchStr.toLowerCase())) {
                 let match = {};
-                
+
                 match.caseNum = caseNum;
                 match.name = cases[caseNum].name;
                 matches.push(match);
