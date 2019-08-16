@@ -6,13 +6,27 @@
 
 <!-- Navbar -->
 <div class="w3-top">
- <div class="w3-bar w3-theme-d2 w3-left-align w3-large">
+ <div class="w3-bar w3-theme-d2 w3-left-align w3-large" id="icons">
   <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-theme-d2" href="javascript:void(0);" onclick="openNav()"><i class="fa fa-bars"></i></a>
   <a href="#" class="w3-bar-item w3-button w3-padding-large w3-theme-d4"><i
           class="fa fa-home w3-margin-right"></i>Patient Portal</a>
   <a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white" title="News"><i class="fa fa-globe"></i></a>
   <a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white" title="Account Settings"><i class="fa fa-user"></i></a>
   <a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white" title="Messages"><i class="fa fa-envelope"></i></a>
+  <script>
+   if ("{{name}}" == "technician"){
+  	alert("technician logged in !");
+  	var a = document.createElement("a");
+  	var i = document.createElement("i");
+
+  	a.setAttribute('href', '#');
+  	a.setAttribute('class', 'w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white');
+  	a.setAttribute('title', 'Add New Patient Profile');
+  	a.append(i);
+  	i.setAttribute('class', 'fa fa-user-plus');
+  	document.getElementById("icons").appendChild(a);
+  }
+  </script>
   <div class="w3-dropdown-hover w3-hide-small">
     <button class="w3-button w3-padding-large" title="Notifications">
         <i class="fa fa-bell"></i>
@@ -118,9 +132,9 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-        
+
         <button type="submit" class="btn btn-primary">Search</button>
-        
+
       </div>
       </form>
     </div>
