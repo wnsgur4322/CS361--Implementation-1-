@@ -96,9 +96,10 @@ app.post('/login', function(req, res, next){
     //let content = {'name':req.body.userid, 'email':users[req.body.userid].email, 'ap':users[req.body.userid].attendingPhysician};
     req.body.userid = req.body.userid.toLowerCase();
     req.session.logged_in_userid = req.body.userid;
-    // req.session.logged_in_email = users[req.body.userid].email;
-    // req.session.logged_in_ap = users[req.body.userid].patient;
+    
     if (users[req.body.userid] && req.body.pswrd === users[req.body.userid].password) {
+        req.session.logged_in_email = users[req.body.userid].email;
+        req.session.logged_in_ap = users[req.body.userid].patient;
         console.log('inside')
         console.log('user info')
         console.log(users[req.body.userid]);
@@ -122,6 +123,10 @@ app.get('/home', function(req, res){
         return res.redirect('login');
     }
 });
+
+app.get('/case-search', function(req, res, next) {
+    return res.redirect('home');
+})
 
 app.post('/case-search', function(req,res,next) {
     if (!req.session.logged_in_userid) {
