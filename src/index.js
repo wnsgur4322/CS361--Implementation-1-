@@ -98,7 +98,7 @@ app.get('/login', function(req, res, next) {
 });
 
 app.post('/login', function(req, res, next){
-    let content = {'name':req.body.userid};
+    let content = {'name':req.body.userid, 'email':users[req.body.userid].email, 'ap':users[req.body.userid].attendingPhysician};
     req.body.userid = req.body.userid.toLowerCase();
     req.session.logged_in_userid = req.body.userid;
     if (users[req.body.userid] && req.body.pswrd === users[req.body.userid].password) {
@@ -117,7 +117,7 @@ app.post('/login', function(req, res, next){
 
 app.get('/home', function(req, res){
     if (req.session.logged_in_userid) {
-        let content = {'name':req.session.logged_in_userid, 'email':users[req.body.userid].email, 'ap':users[req.body.userid].attendingPhysician};
+        let content = {'name':req.session.logged_in_userid};
 
         res.render('home', content)
     }
