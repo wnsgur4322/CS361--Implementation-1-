@@ -151,7 +151,7 @@ app.get('/logout', function(req, res, next) {
 app.get('/case', function(req, res){
 
     if (req.session.logged_in_userid) {
-        let content = {'case_id':req.query.case_id};
+        let content = {'case_id':req.query.case_id, 'name':req.session.logged_in_userid, 'email':req.session.logged_in_email, 'ap':req.session.logged_in_ap};
         console.log(content);
         res.render('case', content)
     } else {
