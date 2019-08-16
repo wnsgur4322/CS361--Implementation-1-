@@ -98,7 +98,7 @@ app.get('/login', function(req, res, next) {
 });
 
 app.post('/login', function(req, res, next){
-    let content = {'name':req.body.userid, 'email':users[req.body.userid].email, 'ap':users[req.body.userid].attendingPhysician};
+    //let content = {'name':req.body.userid, 'email':users[req.body.userid].email, 'ap':users[req.body.userid].attendingPhysician};
     req.body.userid = req.body.userid.toLowerCase();
     req.session.logged_in_userid = req.body.userid;
     req.session.logged_in_email = users[req.body.userid].email;
