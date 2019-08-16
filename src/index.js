@@ -82,6 +82,37 @@ let cases = {
     }
 }
 
+function create_account(){
+  var creating_bool = 0;
+
+  if(document.getElementById("account-username-attribution-input").value != "" && document.getElementById("account-password-attribution-input").value != "" && document.getElementById("account-email-attribution-input").value ){
+    creating_bool = 1;
+  }
+  if(document.getElementById("account-password-attribution-input").value.length < 3){
+    creating_bool = 0;
+  }
+
+  if(creating_bool == 1){
+    alert("Your account is successfully created !");
+    users.push(document.getElementById("account-username-attribution-input").value);
+    users[users.length - 1].push(document.getElementById("account-password-attribution-input").value);
+    users[users.length - 1].push(document.getElementById("account-email-attribution-input").value);
+    document.getElementById("AddprofileModal-modal").classList.add('hidden');
+  }
+
+  if(creating_bool == 0){
+    alert("check your password length (at least 4) or don't left any blank for creating your account !");
+    document.getElementById("account-username-attribution-input").value = "";
+    document.getElementById("account-password-attribution-input").value = "";
+    document.getElementById("account-email-attribution-input").value = "";
+
+  }
+}
+
+var create_account_button = document.querySelector(".modal-account-button");
+create_account_button.addEventListener('click', create_account);
+
+
 app.get('/', function(req, res, next) {
     res.redirect('login');
 });
