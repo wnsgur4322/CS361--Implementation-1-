@@ -14,8 +14,6 @@
   <a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white" title="Account Settings"><i class="fa fa-user"></i></a>
   <a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white" title="Messages"><i class="fa fa-envelope"></i></a>
   <script>
-   if ("{{name}}" == "john"){
-  	alert("technician logged in !");
     var div = document.createElement("div");
     var button = document.createElement("button");
     var div2 = document.createElement("div");
@@ -39,7 +37,6 @@
     a.innerText = "Add new patient profile";
 
   	document.getElementById("icons").appendChild(div);
-  }
   </script>
 <div class="w3-dropdown-hover w3-hide-small">
   <script>
@@ -193,9 +190,9 @@
         </button>
       </div>
       <div class="modal-body">
-        <p>Username</p>
+        <p>Patient name</p>
         <div class="account-username-input-element">
-          <input type="text" id="account-username-attribution-input" style= "border: none; border-bottom: 1px solid lightgrey; background: transparent; outline: none; height: 40px; color: black;" placeholder="Enter your username">
+          <input type="text" id="account-username-attribution-input" style= "border: none; border-bottom: 1px solid lightgrey; background: transparent; outline: none; height: 40px; color: black;" placeholder="Enter your name">
         </div>
       </div>
       <div class="modal-body">
