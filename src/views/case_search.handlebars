@@ -14,6 +14,14 @@
   <a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white" title="Account Settings"><i class="fa fa-user"></i></a>
   <a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white" title="Messages"><i class="fa fa-envelope"></i></a>
   <div class="w3-dropdown-hover w3-hide-small">
+    <button class="w3-button w3-padding-large" title="Add New Patient Profile">
+        <i class="fa fa-user-plus"></i>
+    </button>
+    <div class="w3-dropdown-content w3-card-4 w3-bar-block" style="width:300px">
+      <a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white" data-toggle="modal" data-target="#AddprofileModal">Add new patient profile</a>
+    </div>
+  </div>
+  <div class="w3-dropdown-hover w3-hide-small">
     <button class="w3-button w3-padding-large" title="Notifications">
         <i class="fa fa-bell"></i>
         <span class="w3-badge w3-right w3-small w3-green">1</span>
@@ -118,9 +126,9 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-        
+
         <button type="submit" class="btn btn-primary">Search</button>
-        
+
       </div>
       </form>
     </div>
@@ -147,19 +155,19 @@
 
               {{#if matches}}
                 <p contenteditable="false" class="w3-border
-                w3-padding">Matches found for: "{{searchstring}}"</p>  
+                w3-padding">Matches found for: "{{searchstring}}"</p>
                 {{#each matches}}
-                  
+
                   <p class="pstyle">
                     <button style="margin-right:10px" type="button"
                             class="w3-button w3-theme" onclick="location.href='/case?case_id={{this.caseNum}}'">CASE #{{this.caseNum}}
                     </button>Patient Name: {{this.name}}
                   </p>
-                  
+
                 {{/each}}
               {{else}}
                 <p contenteditable="false" class="w3-border
-                w3-padding">No matches found for: "{{searchstring}}"</p>  
+                w3-padding">No matches found for: "{{searchstring}}"</p>
               {{/if}}
             </div>
           </div>
