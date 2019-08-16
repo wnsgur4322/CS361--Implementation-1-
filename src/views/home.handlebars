@@ -14,7 +14,7 @@
   <a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white" title="Account Settings"><i class="fa fa-user"></i></a>
   <a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white" title="Messages"><i class="fa fa-envelope"></i></a>
   <script>
-   if ("{{name}}" == "technician"){
+   if ("{{name}}" == "john"){
   	alert("technician logged in !");
     var div = document.createElement("div");
     var button = document.createElement("button");
@@ -35,7 +35,7 @@
     a.setAttribute('href', '#');
   	a.setAttribute('class', 'w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white');
     a.setAttribute('data-toggle', 'modal');
-    a.setAttribute('data-target', '#notificationModal');
+    a.setAttribute('data-target', '#AddprofileModal');
     a.innerText = "Add new patient profile";
 
   	document.getElementById("icons").appendChild(div);
@@ -182,6 +182,44 @@
   </div>
 </div>
 
+<!-- Add patient profile modal -->
+<div class="modal fade" id="AddprofileModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" style="height: 0px" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Creat new patient profile</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>Username</p>
+        <div class="account-username-input-element">
+          <input type="text" id="account-username-attribution-input" style= "border: none; border-bottom: 1px solid lightgrey; background: transparent; outline: none; height: 40px; color: black;" placeholder="Enter your username">
+        </div>
+      </div>
+      <div class="modal-body">
+        <p>Password</p>
+        <div class="account-password-input-element">
+          <input type="password" id="account-password-attribution-input" style= "border: none; border-bottom: 1px solid lightgrey; background: transparent; outline: none; height: 40px; color: black;" placeholder="Let your patient enter this">
+        </div>
+      </div>
+      <div class="modal-body">
+        <p>Email</p>
+        <div class="account-username-input-element">
+          <input type="text" id="account-username-attribution-input" style= "border: none; border-bottom: 1px solid lightgrey; background: transparent; outline: none; height: 40px; color: black;" placeholder="Enter your email">
+        </div>
+      </div>
+      <div class="modal-body">
+        Attending Physician : Dr.{{name}}
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Create a profile</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+      </div>
+    </div>
+  </div>
+</div>
 
 <div id="navDemo" class="w3-bar-block w3-theme-d2 w3-hide w3-hide-large w3-hide-medium w3-large">
   <a href="#" class="w3-bar-item w3-button w3-padding-large">Link 1</a>
