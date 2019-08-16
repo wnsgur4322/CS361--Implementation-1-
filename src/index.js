@@ -31,33 +31,33 @@ app.set('port', port);
 let users = {
     "derek": {
         "password": "derek",
-        "email": "derek@oregonstate.edu",
-        "attendingPhysician": "Dr.John"
+        email: "derek@oregonstate.edu",
+        attendingPhysician: "Dr.John"
     },
     "sam": {
         "password": "sam",
-        "email": "sam@oregonstate.edu",
-        "attendingPhysician": "Dr.Wick"
+        email: "sam@oregonstate.edu",
+        attendingPhysician: "Dr.Wick"
     },
     "youli": {
         "password": "youli",
-        "email": "youli@oregonstate.edu",
-        "attendingPhysician": "Dr.Keanu"
+        email: "youli@oregonstate.edu",
+        attendingPhysician: "Dr.Keanu"
     },
     "kara": {
         "password": "kara",
-        "email": "kara@oregonstate.edu",
-        "attendingPhysician": "Dr.Reeves"
+        email: "kara@oregonstate.edu",
+        attendingPhysician: "Dr.Reeves"
     },
     "aleks": {
         "password": "aleks",
-        "email": "aleks@oregonstate.edu",
-        "attendingPhysician": "Dr.Boogeyman"
+        email: "aleks@oregonstate.edu",
+        attendingPhysician: "Dr.Boogeyman"
     },
     "john": {
       "password": "wick",
-      "email": "dog@oregonstate.edu",
-      "attendingPhysician": "This is technician account"
+      email: "dog@oregonstate.edu",
+      attendingPhysician: "This is technician account"
     }
 };
 
@@ -101,12 +101,15 @@ app.post('/login', function(req, res, next){
     let content = {'name':req.body.userid, 'email':users[req.body.userid].email, 'ap':users[req.body.userid].attendingPhysician};
     req.body.userid = req.body.userid.toLowerCase();
     req.session.logged_in_userid = req.body.userid;
+    req.session.logged_in_email = users[req.body.userid].email;
+    req.session.logged_in_ap = users[req.body.userid].attendingPhysician;
     if (users[req.body.userid] && req.body.pswrd === users[req.body.userid].password) {
         console.log('inside')
+        console.log('user info')
+        console.log(users[req.body.userid]);
         users[req.body.userid] = {
             "password": req.body.pswrd
         };
-        // res.send(`${req.session.logged_in_userid} logged in`);
         res.redirect('home')
     }
     else {
@@ -117,9 +120,8 @@ app.post('/login', function(req, res, next){
 
 app.get('/home', function(req, res){
     if (req.session.logged_in_userid) {
-        let content = {'name':req.session.logged_in_userid};
-
-        res.render('home', content)
+        let content = {'name':req.session.logged_in_userid, 'email':req.session.logged_in_email, 'ap':req.session.logged_in_ap};
+        res.render('home', content);
     }
     else {
         return res.redirect('login');
