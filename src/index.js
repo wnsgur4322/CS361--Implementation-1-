@@ -32,32 +32,27 @@ let users = {
     "derek": {
         "password": "derek",
         email: "derek@oregonstate.edu",
-        attendingPhysician: "Dr.John"
+        patient: "John Doe"
     },
     "sam": {
         "password": "sam",
         email: "sam@oregonstate.edu",
-        attendingPhysician: "Dr.Wick"
+        patient: "Sara Smith"
     },
     "youli": {
         "password": "youli",
         email: "youli@oregonstate.edu",
-        attendingPhysician: "Dr.Keanu"
+        patient: "Miles Davis"
     },
     "kara": {
         "password": "kara",
         email: "kara@oregonstate.edu",
-        attendingPhysician: "Dr.Reeves"
+        patient: "Chris Dave"
     },
     "aleks": {
         "password": "aleks",
         email: "aleks@oregonstate.edu",
-        attendingPhysician: "Dr.Boogeyman"
-    },
-    "john": {
-      "password": "wick",
-      email: "dog@oregonstate.edu",
-      attendingPhysician: "This is technician account"
+        patient: "Tony Williams"
     }
 };
 
@@ -102,7 +97,7 @@ app.post('/login', function(req, res, next){
     req.body.userid = req.body.userid.toLowerCase();
     req.session.logged_in_userid = req.body.userid;
     req.session.logged_in_email = users[req.body.userid].email;
-    req.session.logged_in_ap = users[req.body.userid].attendingPhysician;
+    req.session.logged_in_ap = users[req.body.userid].patient;
     if (users[req.body.userid] && req.body.pswrd === users[req.body.userid].password) {
         console.log('inside')
         console.log('user info')
