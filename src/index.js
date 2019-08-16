@@ -31,28 +31,28 @@ app.set('port', port);
 let users = {
     "derek": {
         "password": "derek",
-        email: "derek@oregonstate.edu",
-        patient: "John Doe"
+        "email": "derek@oregonstate.edu",
+        "patient": "John Doe"
     },
     "sam": {
         "password": "sam",
-        email: "sam@oregonstate.edu",
-        patient: "Sara Smith"
+        "email": "sam@oregonstate.edu",
+        "patient": "Sara Smith"
     },
     "youli": {
         "password": "youli",
-        email: "youli@oregonstate.edu",
-        patient: "Miles Davis"
+        "email": "youli@oregonstate.edu",
+        "patient": "Miles Davis"
     },
     "kara": {
         "password": "kara",
-        email: "kara@oregonstate.edu",
-        patient: "Chris Dave"
+        "email": "kara@oregonstate.edu",
+        "patient": "Chris Dave"
     },
     "aleks": {
         "password": "aleks",
-        email: "aleks@oregonstate.edu",
-        patient: "Tony Williams"
+        "email": "aleks@oregonstate.edu",
+        "patient": "Tony Williams"
     }
 };
 
@@ -96,8 +96,8 @@ app.post('/login', function(req, res, next){
     //let content = {'name':req.body.userid, 'email':users[req.body.userid].email, 'ap':users[req.body.userid].attendingPhysician};
     req.body.userid = req.body.userid.toLowerCase();
     req.session.logged_in_userid = req.body.userid;
-    req.session.logged_in_email = users[req.body.userid].email;
-    req.session.logged_in_ap = users[req.body.userid].patient;
+    // req.session.logged_in_email = users[req.body.userid].email;
+    // req.session.logged_in_ap = users[req.body.userid].patient;
     if (users[req.body.userid] && req.body.pswrd === users[req.body.userid].password) {
         console.log('inside')
         console.log('user info')
