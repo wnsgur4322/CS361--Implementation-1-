@@ -175,5 +175,15 @@ function create_account(){
   }
 }
 
+//modal close part (rollback hidden option)
+var cancel_button_2 = document.querySelector(".modal-cancel-button-2");
+
+function rollback_2(){
+  document.getElementById("create-account-modal").classList.add('hidden');
+  document.getElementById("modal-backdrop-2").classList.add('hidden');
+}
+
+cancel_button_2.addEventListener('click', rollback_2);
+
 var create_account_button = document.querySelector(".modal-account-button");
 create_account_button.addEventListener('click', create_account);</script>
