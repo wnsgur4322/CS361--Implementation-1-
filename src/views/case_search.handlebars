@@ -14,15 +14,24 @@
   <a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white" title="Account Settings"><i class="fa fa-user"></i></a>
   <a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white" title="Messages"><i class="fa fa-envelope"></i></a>
   <div class="w3-dropdown-hover w3-hide-small">
-    <button class="w3-button w3-padding-large" title="Notifications">
-        <i class="fa fa-bell"></i>
-        <span class="w3-badge w3-right w3-small w3-green">1</span>
+    <button class="w3-button w3-padding-large" title="Add New Patient Profile">
+        <i class="fa fa-user-plus"></i>
     </button>
     <div class="w3-dropdown-content w3-card-4 w3-bar-block" style="width:300px">
-      <a href="/case?case_id=2314" class="w3-bar-item w3-button"
-         data-toggle="modal"
-         data-target="#notificationModal">Alert</a>
+      <a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white" data-toggle="modal" data-target="#AddprofileModal">Add new patient profile</a>
     </div>
+  </div>
+  <div class="w3-dropdown-hover w3-hide-small">
+    <script>
+    function hide_badge(){
+      var get_badge = document.getElementById("badge");
+      get_badge.style.display = "none";
+  }
+    </script>
+    <button onclick="hide_badge()" class="w3-button w3-padding-large" title="Notifications" data-toggle="modal" data-target="#notificationModal">
+        <i class="fa fa-bell"></i>
+        <span class="w3-badge w3-right w3-small w3-green" id="badge">1</span>
+    </button>
   </div>
   <div class="w3-dropdown-hover w3-hide-small">
     <button class="w3-button w3-padding-large" title="Case-Search">
@@ -41,7 +50,7 @@
                     </button>
                     <div class="w3-dropdown-content w3-card-4 w3-bar-block"
                          style="width:300px; right:40px">
-                        <a href="#" class="w3-bar-item w3-button">Profile</a>
+                        <a href="#" class="w3-bar-item w3-button" data-toggle="modal" data-target="#ProfileModal">Profile</a>
                       <a class="w3-bar-item w3-button">Settings</a>
                         <a href='#' class="w3-bar-item w3-button" data-toggle="modal" data-target="#logoutModal">Log
                             Out</a>
@@ -118,14 +127,112 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-        
+
         <button type="submit" class="btn btn-primary">Search</button>
-        
+
       </div>
       </form>
     </div>
   </div>
 </div>
+
+<!-- Profile modal -->
+<div class="modal fade" id="ProfileModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" style="height: 0px" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">{{name}}'s Profile</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        Name: {{name}}
+      </div>
+      <div class="modal-body">
+        Email: {{email}}
+      </div>
+      <div class="modal-body">
+        Patient : {{ap}}
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">OK</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Add patient profile modal -->
+<div class="modal fade" id="AddprofileModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" style="height: 0px" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Creat new patient profile</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>Patient name</p>
+        <div class="account-username-input-element">
+          <input type="text" id="account-username-attribution-input" style= "border: none; border-bottom: 1px solid lightgrey; background: transparent; outline: none; height: 40px; color: black;" placeholder="Enter your name">
+        </div>
+      </div>
+      <div class="modal-body">
+        <p>Password</p>
+        <div class="account-password-input-element">
+          <input type="password" id="account-password-attribution-input" style= "border: none; border-bottom: 1px solid lightgrey; background: transparent; outline: none; height: 40px; color: black;" placeholder="Let your patient enter this">
+        </div>
+      </div>
+      <div class="modal-body">
+        <p>Email</p>
+        <div class="account-username-input-element">
+          <input type="text" id="account-email-attribution-input" style= "border: none; border-bottom: 1px solid lightgrey; background: transparent; outline: none; height: 40px; color: black;" placeholder="Enter your email">
+        </div>
+      </div>
+      <div class="modal-body">
+        Attending Physician : Dr.{{name}}
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="modal-account-button" data-dismiss="modal">Create a profile</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+function create_account(){
+  var creating_bool = 0;
+
+  if(document.getElementById("account-username-attribution-input").value != "" && document.getElementById("account-password-attribution-input").value != "" && document.getElementById("account-email-attribution-input").value ){
+    creating_bool = 1;
+  }
+  if(document.getElementById("account-password-attribution-input").value.length < 3){
+    creating_bool = 0;
+  }
+
+  if(creating_bool == 1){
+    alert("Your account is successfully created !");
+    users.push(document.getElementById("account-username-attribution-input").value);
+    users[users.length - 1].password.push(document.getElementById("account-password-attribution-input").value);
+    users[users.length - 1].email.push(document.getElementById("account-email-attribution-input").value);
+    users[users.length - 1].patient.push({{name}});
+    document.getElementById("AddprofileModal").classList.add('hidden');
+  }
+
+  if(creating_bool == 0){
+    alert("check your password length (at least 4) or don't left any blank for creating your account !");
+    document.getElementById("account-username-attribution-input").value = "";
+    document.getElementById("account-password-attribution-input").value = "";
+    document.getElementById("account-email-attribution-input").value = "";
+
+  }
+}
+
+var create_account_button = document.querySelector(".modal-account-button");
+create_account_button.addEventListener('click', create_account);
+</script>
 
 <div id="navDemo" class="w3-bar-block w3-theme-d2 w3-hide w3-hide-large w3-hide-medium w3-large">
   <a href="#" class="w3-bar-item w3-button w3-padding-large">Link 1</a>
@@ -147,19 +254,19 @@
 
               {{#if matches}}
                 <p contenteditable="false" class="w3-border
-                w3-padding">Matches found for: "{{searchstring}}"</p>  
+                w3-padding">Matches found for: "{{searchstring}}"</p>
                 {{#each matches}}
-                  
+
                   <p class="pstyle">
                     <button style="margin-right:10px" type="button"
                             class="w3-button w3-theme" onclick="location.href='/case?case_id={{this.caseNum}}'">CASE #{{this.caseNum}}
                     </button>Patient Name: {{this.name}}
                   </p>
-                  
+
                 {{/each}}
               {{else}}
                 <p contenteditable="false" class="w3-border
-                w3-padding">No matches found for: "{{searchstring}}"</p>  
+                w3-padding">No matches found for: "{{searchstring}}"</p>
               {{/if}}
             </div>
           </div>

@@ -13,31 +13,15 @@
   <a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white" title="News"><i class="fa fa-globe"></i></a>
   <a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white" title="Account Settings"><i class="fa fa-user"></i></a>
   <a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white" title="Messages"><i class="fa fa-envelope"></i></a>
-  <script>
-    var div = document.createElement("div");
-    var button = document.createElement("button");
-    var div2 = document.createElement("div");
-  	var a = document.createElement("a");
-  	var i = document.createElement("i");
+  <div class="w3-dropdown-hover w3-hide-small">
+    <button class="w3-button w3-padding-large" title="Add New Patient Profile">
+        <i class="fa fa-user-plus"></i>
+    </button>
+    <div class="w3-dropdown-content w3-card-4 w3-bar-block" style="width:300px">
+      <a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white" data-toggle="modal" data-target="#AddprofileModal">Add new patient profile</a>
+    </div>
+  </div>
 
-    div.setAttribute('class', 'w3-dropdown-hover w3-hide-small');
-    div.append(button);
-    button.setAttribute('class', 'w3-button w3-padding-large');
-    button.setAttribute('title', 'Add New Patient Profile');
-    button.append(i);
-    i.setAttribute('class', 'fa fa-user-plus');
-    div.append(div2);
-    div2.setAttribute('class', 'w3-dropdown-content w3-card-4 w3-bar-block');
-    div2.setAttribute('style', 'width=300px');
-    div2.append(a);
-    a.setAttribute('href', '#');
-  	a.setAttribute('class', 'w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white');
-    a.setAttribute('data-toggle', 'modal');
-    a.setAttribute('data-target', '#AddprofileModal');
-    a.innerText = "Add new patient profile";
-
-  	document.getElementById("icons").appendChild(div);
-  </script>
 <div class="w3-dropdown-hover w3-hide-small">
   <script>
   function hide_badge(){
@@ -234,7 +218,7 @@ function create_account(){
     users.push(document.getElementById("account-username-attribution-input").value);
     users[users.length - 1].password.push(document.getElementById("account-password-attribution-input").value);
     users[users.length - 1].email.push(document.getElementById("account-email-attribution-input").value);
-    users[users.length - 1].attendingPhysician.push({{name}});
+    users[users.length - 1].patient.push({{name}});
     document.getElementById("AddprofileModal").classList.add('hidden');
   }
 
